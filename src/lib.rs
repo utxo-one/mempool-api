@@ -1,5 +1,5 @@
 
-mod models;
+pub mod models;
 
 use std::error::Error;
 

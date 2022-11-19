@@ -1,4 +1,4 @@
-use serde::Deserialize;
+use serde::{Serialize, Deserialize};
 
 #[derive(Deserialize, Debug)]
 pub struct Response {
@@ -9,7 +9,7 @@ pub struct Response {
  * The #[serde(rename = "name")] attribute is used to rename the field name
  * to match the JSON field name.
  */
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Serialize, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct Coin {
     pub id: String,
@@ -19,7 +19,7 @@ pub struct Coin {
     pub price: f32,
     pub price_btc: f64,
 }
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Serialize, Debug)]
 pub struct Mempool {
     pub count: u32,
     pub vsize: u32,
@@ -27,13 +27,13 @@ pub struct Mempool {
     pub fee_histogram: Vec<FeeHistogram>,
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Serialize, Debug)]
 pub struct FeeHistogram {
     pub a: f32,
     pub b: u32,
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Serialize, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct RecommendedFees {
     pub fastest_fee: u32,

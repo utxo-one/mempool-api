@@ -1,5 +1,6 @@
 
-use crate::models;
+mod models;
+
 use std::error::Error;
 
 pub async fn get_mempool() -> Result<(), Box<dyn Error>> {
